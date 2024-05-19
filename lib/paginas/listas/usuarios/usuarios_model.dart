@@ -1,0 +1,35 @@
+import '/backend/supabase/supabase.dart';
+import '/componentes/mn_lateral/mn_lateral_widget.dart';
+import '/componentes/mn_superior/mn_superior_widget.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/form_field_controller.dart';
+import 'usuarios_widget.dart' show UsuariosWidget;
+import 'package:flutter/material.dart';
+
+class UsuariosModel extends FlutterFlowModel<UsuariosWidget> {
+  ///  State fields for stateful widgets in this page.
+
+  final unfocusNode = FocusNode();
+  // Model for mnLateral component.
+  late MnLateralModel mnLateralModel;
+  // Model for mnSuperior component.
+  late MnSuperiorModel mnSuperiorModel;
+  // State field(s) for DropDown widget.
+  String? dropDownValue;
+  FormFieldController<String>? dropDownValueController;
+  // Stores action output result for [Backend Call - Delete Row(s)] action in Icon widget.
+  List<UsuariosRow>? apiExcluirUsuario;
+
+  @override
+  void initState(BuildContext context) {
+    mnLateralModel = createModel(context, () => MnLateralModel());
+    mnSuperiorModel = createModel(context, () => MnSuperiorModel());
+  }
+
+  @override
+  void dispose() {
+    unfocusNode.dispose();
+    mnLateralModel.dispose();
+    mnSuperiorModel.dispose();
+  }
+}
